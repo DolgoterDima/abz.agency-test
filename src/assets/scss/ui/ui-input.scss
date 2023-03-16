@@ -1,0 +1,66 @@
+.ui-input {
+  position: relative;
+  $parent: &;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__input {
+    display: block;
+    width: 100%;
+    background: transparent;
+    transition: all 0.3s ease;
+    padding: 18px 15px;
+    border: 1px solid $color-dark;
+    border-radius: 4px;
+    color: $color-black;
+    &:focus {
+      outline: 1px solid transparent;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    cursor: text;
+    z-index: 2;
+    top: 13px;
+    left: 12px;
+    padding: 0 4px;
+    font-family: inherit;
+    color: $color-light-gray2;
+    transition: all 0.3s ease;
+    background-color: $color-light-gray1;
+
+    @extend .regular-text;
+    &--active {
+      @extend .small-text;
+      top: -8px;
+    }
+  }
+  &__text {
+    padding: 4px 16px;
+    @extend .small-text;
+    min-height: 18px;
+    color: $color-light-gray2;
+  }
+
+  &--error {
+    #{$parent} {
+      &:focus {
+        outline-color: $color-error;
+      }
+      &__input {
+        border-color: $color-error;
+        &:focus {
+          outline-color: $color-error;
+        }
+      }
+      &__label {
+        color: $color-error;
+      }
+      &__text {
+        color: $color-error;
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+.ui-radio {
+  $parent: &;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  &__input {
+    display: none;
+    &:checked {
+      + #{$parent} {
+        &__label {
+          &:after {
+            transform: translate(-50%, -50%) scale(1);
+          }
+        }
+      }
+    }
+  }
+
+  &__label {
+    cursor: pointer;
+    position: relative;
+    padding-left: 32px;
+    @extend .regular-text;
+    &:before {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      content: "";
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid $color-blue;
+      transform: translateY(-50%);
+    }
+    &:after {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transition: all 0.3s;
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $color-blue;
+      transform: translate(-50%, -50%) scale(0);
+    }
+  }
+
+  &__item {
+  }
+}

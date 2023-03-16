@@ -1,0 +1,30 @@
+.form-section {
+  padding-top: 100px;
+  &__title {
+    font-size: $font-size-title;
+    color: $color-black;
+    text-align: center;
+    margin-bottom: 49px;
+  }
+
+  &__form {
+    max-width: 380px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 33px;
+  }
+
+  &__input {
+    width: 100%;
+    &--radio {
+      margin-top: -11px;
+    }
+  }
+  &__label {
+    margin-bottom: 11px;
+    display: inline-block;
+    @extend .regular-text;
+  }
+}

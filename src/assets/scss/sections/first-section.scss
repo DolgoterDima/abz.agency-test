@@ -5,24 +5,23 @@
   display: flex;
 
   justify-content: center;
+  height: 500px;
 
-  height: 650px;
   @include responsive(lg) {
-    height: 500px;
+    height: 650px;
   }
   &__content {
-    padding-top: 164px;
     display: flex;
     flex-direction: column;
-
+    padding: 40px 20px 0;
     align-items: center;
     max-width: 380px;
     text-align: center;
-    @include responsive(lg) {
-      padding-top: 89px;
-    }
     @include responsive(md) {
-      padding: 40px 20px 0;
+      padding: 89px 0 0;
+    }
+    @include responsive(lg) {
+      padding-top: 164px;
     }
   }
 

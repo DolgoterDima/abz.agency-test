@@ -1,12 +1,13 @@
 $breakpoints-custom: (
   sm: 576px,
-  md: 767px,
-  lg: 1023px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1440px,
 );
 
 @mixin responsive($size) {
   @if map-has-key($breakpoints-custom, $size) {
-    @media (max-width: map-get($breakpoints-custom, $size)) {
+    @media (min-width: map-get($breakpoints-custom, $size)) {
       @content;
     }
   } @else {

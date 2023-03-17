@@ -37,26 +37,24 @@ export default {
   props: {
     name: {
       type: String,
-      required: true,
+      default: "Name",
     },
     phone: {
       type: String,
-      required: true,
+      default: "+380666666666",
     },
     email: {
       type: String,
-      required: true,
+      default: "asdasdasd@gmail.com",
     },
     position: {
       type: String,
-      required: true,
+      default: "1",
     },
     photo: {
       type: String,
-      required: true,
+      default: "@/assets/images/photo-cover.svg",
     },
   },
 };
 </script>
-
-<style scoped></style>

@@ -14,27 +14,36 @@
   }
 
   &__users {
-    padding: 0 60px;
-    display: grid;
-    /*
-    grid-template-columns: repeat(3, 282px);
-    */
-    grid-template-columns: repeat(3, calc(33% - 58px));
-    gap: 29px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0 16px;
+
     margin-bottom: 50px;
-    @include responsive(lg) {
-      grid-template-columns: repeat(2, 344px);
+    @include responsive(md) {
       gap: 16px;
       padding: 0 32px;
     }
-    @include responsive(md) {
-      grid-template-columns: repeat(1, 328px);
-      gap: 20px;
-      padding: 0 16px;
+    @include responsive(lg) {
+      gap: 29px;
+      padding: 0 60px;
+    }
+    @include responsive(xl) {
+      gap: 29px;
+      padding: 0 0;
+      flex-basis: calc((100% - 58px) / 3);
     }
   }
 
   &__user {
+    flex-basis: calc((100% - 40px) / 1);
+    flex-grow: 1;
+    @include responsive(md) {
+      flex-basis: calc((100% - 40px) / 2);
+    }
+    @include responsive(lg) {
+      flex-basis: calc((100% - 58px) / 3);
+    }
   }
   &__button {
     margin: 0 auto;

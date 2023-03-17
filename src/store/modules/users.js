@@ -7,22 +7,21 @@ export default {
     },
   },
   getters: {
-    getUsers({ usersInfo }) {
+    getUsers: ({ usersInfo }) => {
       return usersInfo.users?.sort(
         (a, b) => a?.registration_timestamp + b?.registration_timestamp
       );
     },
-    getUsersTotalPages({ usersInfo }) {
-      return usersInfo.total_pages;
-    },
+    getUsersTotalPages: (state) => state.usersInfo.total_pages,
   },
   mutations: {
-    setUsersInfo(state, payload) {
-      state.usersInfo.users.push(...payload?.users);
-      state.usersInfo.total_pages = payload.total_pages;
+    SET_USERS_INFO(state, { usersInfo, pageCount }) {
+      const { users = [], total_pages } = usersInfo || {};
 
-      console.log("usersInfo", state.usersInfo);
-      console.log("payload", payload.users);
+      state.usersInfo.users =
+        pageCount === 1 ? [...users] : [...state.usersInfo.users, ...users];
+
+      state.usersInfo.total_pages = total_pages;
     },
   },
   actions: {
@@ -32,7 +31,26 @@ export default {
       );
       const usersInfo = await response.json();
 
-      commit("setUsersInfo", usersInfo);
+      commit("SET_USERS_INFO", { usersInfo: usersInfo, pageCount: payload });
+    },
+
+    async sendFormData({ commit, rootGetters }, payload) {
+      const formData = new FormData();
+      for (const key in payload) {
+        formData.append(key, payload[key]);
+      }
+
+      const { getToken } = rootGetters;
+      const options = {
+        method: "POST",
+        body: formData,
+        headers: { Token: getToken },
+      };
+
+      return await fetch(
+        "https://frontend-test-assignment-api.abz.agency/api/v1/users",
+        options
+      ).then((response) => response.json());
     },
   },
 };

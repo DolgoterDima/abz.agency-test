@@ -1,10 +1,12 @@
 .form-section {
-  padding-top: 100px;
+  padding-top: 99px;
+  padding-bottom: 100px;
   &__title {
     font-size: $font-size-title;
     color: $color-black;
     text-align: center;
-    margin-bottom: 49px;
+    margin-bottom: 50px;
+    padding: 0 20px;
   }
 
   &__form {
@@ -14,16 +16,33 @@
     flex-direction: column;
     align-items: center;
     gap: 33px;
+    @include responsive(md) {
+      padding: 0 16px;
+    }
   }
-
+  &__error {
+    @extend .regular-text;
+    color: $color-error;
+  }
+  &__button {
+    padding: 7px 23px;
+  }
+  &__success-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   &__input {
     width: 100%;
     &--radio {
       margin-top: -11px;
     }
+    &--file {
+      margin-top: 17px;
+    }
   }
   &__label {
-    margin-bottom: 11px;
+    margin-bottom: 10px;
     display: inline-block;
     @extend .regular-text;
   }

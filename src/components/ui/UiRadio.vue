@@ -6,7 +6,8 @@
         type="radio"
         @change="onChange"
         class="ui-radio__input"
-        :value="item.name"
+        :value="item.id"
+        :checked="item.id === 1"
         :name="name"
       />
       <label :for="idFromLabel(item.name)" class="ui-radio__label">
@@ -30,10 +31,7 @@ export default {
       type: String,
       required: true,
     },
-    value: {
-      type: String,
-      required: true,
-    },
+
     data: {
       type: Array,
       default: "",

@@ -1,7 +1,7 @@
 $breakpoints-custom: (
   sm: 576px,
-  md: 768px,
-  lg: 1024px,
+  md: 767px,
+  lg: 1023px,
 );
 
 @mixin responsive($size) {
@@ -13,5 +13,3 @@ $breakpoints-custom: (
     @error "Invalid breakpoint: #{$size}. Please use one of #{$breakpoints-custom}.";
   }
 }
-
-@extend;

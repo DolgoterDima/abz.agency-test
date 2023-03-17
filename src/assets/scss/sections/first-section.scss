@@ -1,10 +1,15 @@
 .first-section {
   background-image: url("/src/assets/images/field.jpg");
+  background-size: cover;
+  background-position: center center;
   display: flex;
 
   justify-content: center;
 
   height: 650px;
+  @include responsive(lg) {
+    height: 500px;
+  }
   &__content {
     padding-top: 164px;
     display: flex;
@@ -13,6 +18,12 @@
     align-items: center;
     max-width: 380px;
     text-align: center;
+    @include responsive(lg) {
+      padding-top: 89px;
+    }
+    @include responsive(md) {
+      padding: 40px 20px 0;
+    }
   }
 
   &__title {

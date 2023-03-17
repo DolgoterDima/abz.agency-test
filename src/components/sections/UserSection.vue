@@ -1,5 +1,5 @@
 <template>
-  <section class="users-section">
+  <section class="users-section" id="users-section">
     <h2 class="users-section__title">Working with GET request</h2>
     <div class="users-section__users">
       <UserCard
@@ -28,7 +28,7 @@ export default {
   name: "UserSection",
   data() {
     return {
-      currentPage: 80,
+      currentPage: 1,
     };
   },
   computed: {

@@ -1,6 +1,13 @@
 <template>
   <article class="user-card">
-    <img :src="photo" :alt="name" class="user-card__avatar" />
+    <img
+      :src="photo"
+      width="70"
+      height="70"
+      :alt="name"
+      class="user-card__avatar"
+      loading="lazy"
+    />
     <span class="user-card__name text-overflow" :content="name" v-tippy>{{
       name
     }}</span>

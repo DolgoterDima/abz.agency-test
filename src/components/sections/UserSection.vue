@@ -1,7 +1,7 @@
 <template>
-  <section class="users-section container" id="users-section">
+  <section class="users-section" id="users-section">
     <h2 class="users-section__title">Working with GET request</h2>
-    <div class="users-section__users">
+    <div class="users-section__users container">
       <UserCard
         v-if="getUsers"
         class="users-section__user"

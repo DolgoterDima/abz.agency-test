@@ -29,20 +29,21 @@
       padding: 0 60px;
     }
     @include responsive(xl) {
-      gap: 29px;
       padding: 0 0;
-      flex-basis: calc((100% - 58px) / 3);
     }
   }
 
   &__user {
-    flex-basis: calc((100% - 40px) / 1);
-    flex-grow: 1;
+    flex: 1 1 100%;
+    max-width: 100%;
+
     @include responsive(md) {
-      flex-basis: calc((100% - 40px) / 2);
+      flex: 1 1 calc(100% - 16px);
+      max-width: calc((100% - 16px) / 2);
     }
     @include responsive(lg) {
-      flex-basis: calc((100% - 58px) / 3);
+      flex: 1 1 calc(100% - 58px);
+      max-width: calc((100% - 58px) / 3);
     }
   }
   &__button {

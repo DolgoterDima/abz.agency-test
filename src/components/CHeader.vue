@@ -2,7 +2,7 @@
   <header class="header layout__header">
     <div class="header__container container">
       <router-link to="/" class="header__logo-link">
-        <img src="@/assets/images/Logo.svg" class="header__logo" alt="logo" />
+        <img src="@/assets/images/logo.svg" class="header__logo" alt="logo" />
       </router-link>
       <nav class="header__nav nav">
         <router-link

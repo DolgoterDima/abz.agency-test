@@ -1,16 +1,19 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
+const githubPagesPrefix =
+  process.env.NODE_ENV === "production" ? "/abz.agency-test-task/" : "/";
+
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
+    path: `${githubPagesPrefix}`,
     name: "home",
     component: () => import("../views/HomeView.vue"),
   },
   {
-    path: "/about",
+    path: `${githubPagesPrefix}about`,
     name: "about",
     component: () => import("../views/AboutView.vue"),
   },

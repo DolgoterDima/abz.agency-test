@@ -12,13 +12,14 @@
       <span v-else>No users</span>
     </div>
     <button
-      v-if="currentPage !== getUsersTotalPages"
+      v-if="currentPage !== getUsersTotalPages && !isLoaderShow"
       type="button"
       class="button users-section__button"
       @click="fetchUsers"
     >
       Show more
     </button>
+    <UiPreloader v-if="isLoaderShow" />
   </section>
 </template>
 <script>
@@ -29,6 +30,7 @@ export default {
   data() {
     return {
       currentPage: 1,
+      isLoaderShow: false,
     };
   },
   computed: {
@@ -38,8 +40,11 @@ export default {
     ...mapActions("users", ["fetchUsersAction"]),
 
     fetchUsers() {
+      this.isLoaderShow = true;
       this.currentPage++;
-      this.fetchUsersAction(this.currentPage);
+      this.fetchUsersAction(this.currentPage).then(() => {
+        this.isLoaderShow = false;
+      });
     },
   },
   components: {

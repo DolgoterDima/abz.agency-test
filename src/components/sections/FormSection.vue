@@ -17,7 +17,7 @@
 
       <form class="form-section__form" @submit.prevent="onSubmit()" ref="form">
         <ValidationProvider
-          rules="name|required"
+          rules="name"
           v-slot="{ errors }"
           tag="div"
           class="form-section__input"
@@ -96,19 +96,17 @@
         >
           Sign up
         </button>
+
+        <UiPreloader v-if="userRegistrationStatus.isLoaderShow" />
       </form>
     </template>
   </section>
 </template>
 <script>
-import UiInput from "@/components/ui/UiInput.vue";
-import UiRadio from "@/components/ui/UiRadio.vue";
-import UiFile from "@/components/ui/UiFile.vue";
 import { mapActions } from "vuex";
 
 export default {
   name: "FormSection",
-  components: { UiFile, UiInput, UiRadio },
   data() {
     return {
       form: {
@@ -123,12 +121,14 @@ export default {
       userRegistrationStatus: {
         error: "",
         success: "",
+        isLoaderShow: false,
       },
     };
   },
   watch: {
     form: {
       handler(newValue, oldValue) {
+        /* check if all fields are filled */
         this.isAllFormFilled = Object.values(oldValue).every(
           (item) => item !== ""
         );
@@ -140,6 +140,7 @@ export default {
     ...mapActions("users", ["sendFormData", "fetchUsersAction"]),
 
     async selected(photo) {
+      /* set photo */
       const { valid } = await this.$refs.validator.validate(photo);
       if (valid) this.form.photo = photo;
     },
@@ -153,6 +154,7 @@ export default {
     },
     onSubmit() {
       if (this.isAllFormFilled) {
+        this.userRegistrationStatus.isLoaderShow = true;
         this.sendFormData(this.form).then((data) => {
           console.log(data);
           if (data.success) {
@@ -163,6 +165,8 @@ export default {
           } else {
             this.userRegistrationStatus.error = data.message;
           }
+
+          this.userRegistrationStatus.isLoaderShow = false;
         });
       }
     },

@@ -40,7 +40,7 @@ export default {
     },
     value: {
       type: String,
-      required: true,
+      default: "",
     },
     helperText: {
       type: String,

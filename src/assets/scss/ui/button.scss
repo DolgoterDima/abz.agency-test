@@ -2,7 +2,7 @@
   $parent: &;
   background-color: $color-yellow;
   color: $color-black;
-  padding: 6px 29px;
+  padding: 7px 29px;
   border-radius: 80px;
   text-decoration: none;
   transition: background-color 0.3s;
@@ -13,9 +13,7 @@
   &:hover {
     background-color: $color-dark-yellow;
   }
-  &--offset1 {
-    padding: 7px 23px;
-  }
+
   &--disabled {
     background-color: $color-light-gray2;
     cursor: not-allowed;

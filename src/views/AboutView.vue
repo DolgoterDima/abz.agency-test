@@ -67,8 +67,8 @@
         loading="lazy"
         class="about-page__image"
         src="@/assets/images/pc.jpg"
-        alt="Optimization on desktop "
-        title="Optimization on desktop"
+        alt="Optimization for desktop "
+        title="Optimization for desktop"
       />
       <figcaption class="about-page__figcaption">
         Optimization for desktop
@@ -79,8 +79,8 @@
         loading="lazy"
         class="about-page__image"
         src="@/assets/images/mob.jpg"
-        alt="Optimization on mobile"
-        title="Optimization on mobile"
+        alt="Optimization for mobile"
+        title="Optimization for mobile"
       />
       <figcaption class="about-page__figcaption">
         Optimization for mobile
@@ -92,8 +92,8 @@
         loading="lazy"
         class="about-page__image"
         src="@/assets/images/mob-seo.jpg"
-        alt="Optimization on mobile"
-        title="Optimization on mobile"
+        alt="SEO optimization for mobile"
+        title="SEO optimization for mobile"
       />
       <figcaption class="about-page__figcaption">
         SEO is not in the green zone because elements are smaller than they

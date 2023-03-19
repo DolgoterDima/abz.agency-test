@@ -12,7 +12,7 @@
         >
         <router-link
           :to="{ path: '/', hash: '#sign-up-section' }"
-          class="nav__link button button--offset1"
+          class="nav__link button nav__link--offset"
         >
           Sign up
         </router-link>

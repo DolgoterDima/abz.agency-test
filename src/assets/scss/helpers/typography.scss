@@ -22,3 +22,12 @@
     color: lighten($color-black, 10%);
   }
 }
+
+.list {
+  list-style: disc;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 50px;
+}

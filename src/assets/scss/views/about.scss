@@ -1,0 +1,28 @@
+.about-page {
+  padding: 50px;
+  &__title {
+    font-size: $font-size-title;
+    margin-bottom: 50px;
+  }
+
+  &__subtitle {
+    font-size: $font-size-default;
+    margin-bottom: 20px;
+  }
+
+  &__figure {
+    text-align: center;
+    border: 1px solid;
+    margin-bottom: 50px;
+  }
+
+  &__image {
+  }
+
+  &__figcaption {
+    padding: 10px;
+  }
+}
+
+.container {
+}

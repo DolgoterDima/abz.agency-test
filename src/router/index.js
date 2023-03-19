@@ -1,19 +1,16 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-const githubPagesPrefix =
-  process.env.NODE_ENV === "production" ? "/abz.agency-test-task/" : "/";
-
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: `${githubPagesPrefix}`,
+    path: `/`,
     name: "home",
     component: () => import("../views/HomeView.vue"),
   },
   {
-    path: `${githubPagesPrefix}about`,
+    path: `/about`,
     name: "about",
     component: () => import("../views/AboutView.vue"),
   },
@@ -22,6 +19,13 @@ const routes = [
 const router = new VueRouter({
   mode: "history",
   routes,
+  beforeEach: (to, from, next) => {
+    const publicPath =
+      process.env.NODE_ENV === "production" ? "/abz.agency-test-task/" : "/";
+    to.path = `${publicPath}${to.path}`;
+
+    next();
+  },
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
       return { selector: to.hash, behavior: "smooth" };
@@ -32,5 +36,4 @@ const router = new VueRouter({
     }
   },
 });
-
 export default router;

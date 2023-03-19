@@ -8,6 +8,7 @@ import "@/plugins/ui-components"; // add  ui components
 import "@/assets/scss/index.scss"; // add  all scss files
 Vue.config.productionTip = false;
 
+Vue.config.productionTipccc = "sss";
 new Vue({
   router,
   store,

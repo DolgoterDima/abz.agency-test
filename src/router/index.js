@@ -4,7 +4,7 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 const publicPath =
-  process.env.NODE_ENV !== "production" ? "/abz.agency-test-task/" : "/";
+  process.env.NODE_ENV === "production" ? "/abz.agency-test-task/" : "/";
 
 const routes = [
   {

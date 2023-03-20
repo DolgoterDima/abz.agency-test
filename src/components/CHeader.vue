@@ -10,6 +10,7 @@
           class="nav__link button"
           >Users</router-link
         >
+
         <router-link
           :to="{ path: `${$publicPath}`, hash: '#sign-up-section' }"
           class="nav__link button nav__link--offset"

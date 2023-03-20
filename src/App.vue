@@ -2,9 +2,7 @@
   <div id="app" class="layout">
     <CHeader />
     <main class="main layout__main">
-
       <router-view />
-
     </main>
     <footer class="footer layout__footer"></footer>
   </div>

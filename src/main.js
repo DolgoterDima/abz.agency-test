@@ -8,7 +8,7 @@ import "@/plugins/ui-components"; // add  ui components
 import "@/assets/scss/index.scss"; // add  all scss files
 Vue.config.productionTip = false;
 Vue.prototype.$publicPath =
-  process.env.NODE_ENV === "production" ? "/abz.agency-test-task/" : "/";
+  process.env.NODE_ENV === "production" ? "/abz.agency-test-task/" : "/"; //add global variable
 
 new Vue({
   router,

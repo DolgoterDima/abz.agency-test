@@ -16,7 +16,10 @@
       </li>
       <li>
         photo - user photo should be jpg/jpeg image, with resolution at least
-        70x70px and size must not exceed 5MB.
+        70x70px and size must not exceed 5MB. Also to test, I manually renamed
+        the png photo to jpg. I passed Vee validation but the server is
+        returning an error, so I'm printing all the errors from the server to
+        the screen.
       </li>
     </ul>
     <h2 class="about-page__subtitle">Pixel Perfect</h2>

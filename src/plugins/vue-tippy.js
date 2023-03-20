@@ -15,6 +15,7 @@ export default Vue.use(VueTippy, {
       preventOverflow: {
         enabled: false,
       },
+      hide: { enabled: false },
     },
   },
 });

@@ -85,8 +85,11 @@
         >
           <UiFile @file-uploaded="selected" :errors="errors" />
         </ValidationProvider>
-        <span class="form-section__error" v-if="userRegistrationStatus.error">
-          {{ userRegistrationStatus.error }}
+        <span
+          class="form-section__error"
+          v-if="userRegistrationStatus.error"
+          v-html="userRegistrationStatus.error"
+        >
         </span>
         <button
           type="submit"
@@ -155,19 +158,25 @@ export default {
     onSubmit() {
       if (this.isAllFormFilled) {
         this.userRegistrationStatus.isLoaderShow = true;
-        this.sendFormData(this.form).then((data) => {
-          console.log(data);
-          if (data.success) {
-            this.userRegistrationStatus.success =
-              "User successfully registered";
+        this.sendFormData(this.form)
+          .then((data) => {
+            if (data.success) {
+              this.userRegistrationStatus.success =
+                "User successfully registered";
 
-            this.fetchUsersAction();
-          } else {
-            this.userRegistrationStatus.error = data.message;
-          }
+              this.fetchUsersAction();
+            } else {
+              const errorsList = Object.values(data.fails)
+                .map((value) => {
+                  return `${value} <br>`;
+                })
+                .join("");
+              this.userRegistrationStatus.error = `${data.message}<br>${errorsList}`;
+            }
 
-          this.userRegistrationStatus.isLoaderShow = false;
-        });
+            this.userRegistrationStatus.isLoaderShow = false;
+          })
+          .catch((error) => console.error(error));
       }
     },
   },

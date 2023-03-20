@@ -4,16 +4,16 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 const publicPath =
-  process.env.NODE_ENV === "production" ? "/abz.agency-test-task/" : "/";
+  process.env.NODE_ENV !== "production" ? "/abz.agency-test-task/" : "/";
 
 const routes = [
   {
-    path: `${publicPath}`,
+    path: `/`,
     name: "home",
     component: () => import("@/views/HomeView.vue"),
   },
   {
-    path: `${publicPath}about`,
+    path: `/about`,
     name: "about",
     component: () => import("@/views/AboutView.vue"),
   },
@@ -21,6 +21,7 @@ const routes = [
 
 const router = new VueRouter({
   mode: "history",
+  base: publicPath,
   routes,
 
   scrollBehavior(to, from, savedPosition) {

@@ -12,7 +12,7 @@
         Development keeps evolving.
       </span>
       <router-link
-        :to="{ path: `${$publicPath}`, hash: '#sign-up-section' }"
+        :to="{ path: '/', hash: '#sign-up-section' }"
         class="first-section__button button"
       >
         Sign up
